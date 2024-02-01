@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- This layout encompasses the 12 digital art selling options that
+pops up after the user clicks on the Sell bottom navigation menu icon-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- CardView with rounded corners -->
     <androidx.cardview.widget.CardView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -27,6 +31,7 @@
                 android:paddingHorizontal="25dp"
                 android:paddingVertical="2dp">
 
+                <!-- Exit button (X) to close the popup -->
                 <com.google.android.material.button.MaterialButton
                     style="@android:style/Widget.DeviceDefault.ImageButton"
                     android:layout_width="18dp"
@@ -36,8 +41,10 @@
                     app:icon="@drawable/close_icon"
                     app:iconGravity="textStart"
                     app:iconSize="18dp"
-                    app:iconTint="#000000" />
+                    app:iconTint="#000000"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
+                <!-- Selling selection prompt -->
                 <TextView
                     android:layout_width="317dp"
                     android:layout_height="40dp"
@@ -45,13 +52,14 @@
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center"
                     android:paddingHorizontal="10dp"
-                    android:text="Start selling now"
+                    android:text="@string/selling_selection_lbl"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textColor="#0C0C0C"
                     android:textSize="15sp" />
 
             </LinearLayout>
 
+            <!-- CardView with rounded corners -->
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,7 +71,7 @@
                 android:paddingBottom="25dp"
                 android:rowCount="4">
 
-                <!-- Item 1 -->
+                <!-- Digital Illustration -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -87,17 +95,18 @@
                         app:icon="@drawable/digital_illustration_icon"
                         app:iconGravity="textTop"
                         app:iconSize="25dp"
-                        app:iconTint="#040404" />
+                        app:iconTint="#040404"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
                     <TextView
-                        android:layout_marginTop="-10dp"
                         android:layout_width="58dp"
-                        android:gravity="center"
                         android:layout_height="wrap_content"
-                        android:text="Digital Illustration"
+                        android:layout_marginTop="-10dp"
+                        android:gravity="center"
+                        android:text="@string/digital_illustration_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp,TextSizeCheck" />
 
                 </LinearLayout>
 
@@ -124,20 +133,24 @@
                         app:icon="@drawable/digital_painting_icon"
                         app:iconGravity="textTop"
                         app:iconSize="26dp"
-                        app:iconTint="#000000" />
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
+                    <!-- Digital Painting -->
                     <TextView
                         android:layout_marginTop="-10dp"
 
                         android:layout_width="58dp"
                         android:gravity="center"
                         android:layout_height="wrap_content"
-                        android:text="Digital Painting"
+                        android:text="@string/digital_painting_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
 
                 </LinearLayout>
+
+                <!-- Vector Art -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -151,7 +164,6 @@
                         android:layout_height="65dp"
                         android:layout_rowWeight="1"
                         android:layout_margin="8dp"
-                        app:iconGravity="textTop"
                         android:paddingTop="10dp"
                         android:text=""
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -160,19 +172,24 @@
                         app:backgroundTint="#E6E3E3"
                         app:cornerRadius="12dp"
                         app:icon="@drawable/vector_art_icon"
+                        app:iconGravity="textTop"
                         app:iconSize="25dp"
-                        app:iconTint="#000000" />
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
+
                     <TextView
                         android:layout_marginTop="-10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Vector Art"
+                        android:text="@string/vector_art_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
 
                 </LinearLayout>
+
+                <!-- 3D Art -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -196,18 +213,21 @@
                         app:icon="@drawable/three_d_art_icon"
                         app:iconGravity="textTop"
                         app:iconSize="27dp"
-                        app:iconTint="#050505" />
+                        app:iconTint="#050505"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
                     <TextView
                         android:layout_marginTop="-10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3D Art"
+                        android:text="@string/_3d_art_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
 
                 </LinearLayout>
+
+                <!-- Pixel Art -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -221,7 +241,6 @@
                         android:layout_height="65dp"
                         android:layout_rowWeight="1"
                         android:layout_margin="8dp"
-                        app:iconGravity="textTop"
                         android:paddingTop="10dp"
                         android:text=""
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -230,19 +249,23 @@
                         app:backgroundTint="#E6E3E3"
                         app:cornerRadius="12dp"
                         app:icon="@drawable/pixel_art_icon"
+                        app:iconGravity="textTop"
                         app:iconSize="25dp"
-                        app:iconTint="#000000" />
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
                     <TextView
                         android:layout_marginTop="-10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pixel Art"
+                        android:text="@string/pixel_art_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
 
                 </LinearLayout>
+
+                <!-- Digital Collage -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -256,7 +279,6 @@
                         android:layout_height="65dp"
                         android:layout_rowWeight="1"
                         android:layout_margin="8dp"
-                        app:iconGravity="textTop"
                         android:paddingTop="10dp"
                         android:text=""
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -265,20 +287,24 @@
                         app:backgroundTint="#E6E3E3"
                         app:cornerRadius="12dp"
                         app:icon="@drawable/digital_collage_icon"
+                        app:iconGravity="textTop"
                         app:iconSize="25dp"
-                        app:iconTint="#090909" />
+                        app:iconTint="#090909"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
                     <TextView
                         android:layout_marginTop="-10dp"
                         android:layout_width="58dp"
                         android:gravity="center"
                         android:layout_height="wrap_content"
-                        android:text="Digital Collage"
+                        android:text="@string/digital_collage_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
 
                 </LinearLayout>
+
+                <!-- Digital Photography -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -292,7 +318,6 @@
                         android:layout_height="65dp"
                         android:layout_rowWeight="1"
                         android:layout_margin="8dp"
-                        app:iconGravity="textTop"
                         android:paddingTop="10dp"
                         android:text=""
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -301,20 +326,24 @@
                         app:backgroundTint="#E6E3E3"
                         app:cornerRadius="12dp"
                         app:icon="@drawable/digital_photography_icon"
+                        app:iconGravity="textTop"
                         app:iconSize="25dp"
-                        app:iconTint="#000000" />
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
                     <TextView
-                        android:layout_marginTop="-10dp"
                         android:layout_width="58dp"
-                        android:gravity="center"
                         android:layout_height="wrap_content"
-                        android:text="Digital Photograh"
+                        android:layout_marginTop="-10dp"
+                        android:gravity="center"
+                        android:text="@string/digital_photograh_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp,TextSizeCheck" />
 
                 </LinearLayout>
+
+                <!-- Digital Comics -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -338,18 +367,21 @@
                         app:icon="@drawable/digital_comics_icon"
                         app:iconGravity="textTop"
                         app:iconSize="27dp"
-                        app:iconTint="#000000" />
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
                     <TextView
                         android:layout_marginTop="-10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Digital Comic"
+                        android:text="@string/digital_comic_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
 
                 </LinearLayout>
+
+                <!-- NFT Art -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -373,18 +405,21 @@
                         app:icon="@drawable/nft_art_icon"
                         app:iconGravity="textTop"
                         app:iconSize="26dp"
-                        app:iconTint="#000000" />
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
                     <TextView
                         android:layout_marginTop="-10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="NFT Art"
+                        android:text="@string/nft_art_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
 
                 </LinearLayout>
+
+                <!-- Generative/AI Art -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -408,19 +443,22 @@
                         app:icon="@drawable/generative_art_icon"
                         app:iconGravity="textTop"
                         app:iconSize="24dp"
-                        app:iconTint="#000000" />
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
                     <TextView
-                        android:layout_marginTop="-10dp"
                         android:layout_width="58dp"
-                        android:gravity="center"
                         android:layout_height="wrap_content"
-                        android:text="Generative Art"
+                        android:layout_marginTop="-10dp"
+                        android:gravity="center"
+                        android:text="@string/generative_art_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp,TextSizeCheck" />
 
                 </LinearLayout>
+
+                <!-- Motion graphics and Animation -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -444,19 +482,22 @@
                         app:icon="@drawable/motion_graphics_and_animation_icon"
                         app:iconGravity="textTop"
                         app:iconSize="26dp"
-                        app:iconTint="#000000" />
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
                     <TextView
-                        android:layout_marginTop="-10dp"
                         android:layout_width="58dp"
                         android:layout_height="wrap_content"
-                        android:text="Motion Grahpics and Animation"
-                        android:textColor="#000000"
+                        android:layout_marginTop="-10dp"
                         android:gravity="center"
-                        android:textSize="9sp" />
+                        android:text="@string/motion_grahpics_and_animation_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp,TextSizeCheck" />
 
                 </LinearLayout>
+
+                <!-- Digital Calligraphy and Lettering -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -480,17 +521,18 @@
                         app:icon="@drawable/digital_calligraphy_and_lettering_icon"
                         app:iconGravity="textTop"
                         app:iconSize="23dp"
-                        app:iconTint="#000000" />
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
 
-                    <!-- Label 1 -->
                     <TextView
-                        android:layout_marginTop="-10dp"
                         android:layout_width="58dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
                         android:gravity="center"
-                        android:text="Digital Calligraphy and Lettering"
+                        android:text="@string/digital_calligraphy_and_lettering_lbl"
                         android:textColor="#000000"
-                        android:textSize="9sp" />
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp,TextSizeCheck" />
 
                 </LinearLayout>
 
