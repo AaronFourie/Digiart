@@ -1,0 +1,7 @@
+
+<resources>
+
+    <style name="Theme.DigiART" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Add any other splash screen specific styles if needed -->
+    </style>
+</resources>

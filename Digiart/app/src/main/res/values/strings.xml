@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">DigiArt</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="actvity_main">MainActivity</string>
+    <string name="title_search">Search</string>
+    <string name="title_sell">Sell</string>
+    <string name="actvity_login">LoginActivity</string>
+    <string name="actvity_sell_art">SellArtCategoryActivity</string>
+</resources>
