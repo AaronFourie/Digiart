@@ -4,4 +4,10 @@
     <style name="Theme.DigiART" parent="Theme.Material3.Light.NoActionBar">
         <!-- Add any other splash screen specific styles if needed -->
     </style>
+
+    <style name="RoundedCornersShapeAppearance">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
 </resources>

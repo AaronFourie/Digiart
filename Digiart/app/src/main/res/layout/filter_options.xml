@@ -1,6 +1,468 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<!-- filter_options.xml -->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <!-- Options for Price -->
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/tvPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <GridLayout
+        android:id="@+id/gridPriceOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3">
+
+        <RadioButton
+            android:textColor="#424141"
+            android:id="@+id/rbFree"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Free"/>
+
+        <RadioButton
+            android:id="@+id/rbUnder10"
+            android:textColor="#3E3E3E"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_10"/>
+
+        <RadioButton
+            android:id="@+id/rbUnder50"
+            android:textColor="#3E3E3E"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_10_25"/>
+
+        <RadioButton
+            android:id="@+id/rb25to50"
+            android:textColor="#3E3E3E"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_25_50"/>
+
+        <RadioButton
+            android:id="@+id/rb50to100"
+            android:textColor="#3E3E3E"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_50_100"/>
+
+        <RadioButton
+            android:id="@+id/rbOver100"
+            android:textColor="#3E3E3E"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_100"/>
+    </GridLayout>
+
+    <!-- Options for Art Type -->
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/tvArtType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/img_type"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <GridLayout
+        android:id="@+id/gridImgType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+
+        <CheckBox
+            android:id="@+id/cbAll"
+            android:layout_width="165dp"
+            android:textColor="#3E3E3E"
+            android:layout_height="wrap_content"
+            android:text="@string/All"/>
+
+        <CheckBox
+            android:id="@+id/cbDigitalPainting"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Photo"/>
+
+        <CheckBox
+            android:id="@+id/cbVectorArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Illustration"/>
+
+        <CheckBox
+            android:id="@+id/cb3DArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_3d_art_lbl"/>
+
+        <CheckBox
+            android:id="@+id/cbPixelArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/pixel_art_lbl"/>
+
+        <CheckBox
+            android:id="@+id/cbDigitalCollage"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/digital_collage_lbl"/>
+
+        <CheckBox
+            android:id="@+id/cbDigitalPhotography"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/digital_photograh_lbl"/>
+
+        <CheckBox
+            android:id="@+id/cbDigitalComics"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/digital_comic_lbl"/>
+
+        <CheckBox
+            android:id="@+id/cbNFTArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nft_art_lbl"/>
+
+        <CheckBox
+            android:id="@+id/cbGenerativeArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/generative_art_lbl"/>
+
+        <CheckBox
+            android:id="@+id/cbMotionGraphicsAndAnimation"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/motion_grahpics_and_animation_lbl"/>
+
+        <CheckBox
+            android:id="@+id/cbDigitalCalligraphyAndLetteting"
+            android:textColor="#3E3E3E"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="@string/digital_calligraphy_and_lettering_lbl"/>
+
+        <!-- Add other art type options here -->
+
+    </GridLayout>
+
+    <!-- Options for Tag -->
+    <TextView
+        android:id="@+id/tvTag"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tag"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <GridLayout
+        android:id="@+id/gridTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+
+        <!-- Options for Tag -->
+        <CheckBox
+            android:id="@+id/cbLandscape"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Landscape"/>
+
+        <CheckBox
+            android:id="@+id/cbPortrait"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Portrait"/>
+
+        <CheckBox
+            android:id="@+id/cbFantasy"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fantasy"/>
+
+        <CheckBox
+            android:id="@+id/cbSciFi"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sci-Fi"/>
+
+        <CheckBox
+            android:id="@+id/cbCyberpunk"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cyberpunk"/>
+
+        <CheckBox
+            android:id="@+id/cbAnime"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anime"/>
+
+        <CheckBox
+            android:id="@+id/cbCharacterDesign"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Character Design"/>
+
+        <CheckBox
+            android:id="@+id/cbConceptArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Concept Art"/>
+
+        <CheckBox
+            android:id="@+id/cbDigitalSurrealism"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Digital Surrealism"/>
+
+        <CheckBox
+            android:id="@+id/cbAbstract"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abstract"/>
+
+        <CheckBox
+            android:id="@+id/cbCyberArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cyber Art"/>
+
+        <CheckBox
+            android:id="@+id/cbSteampunk"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Steampunk"/>
+
+        <CheckBox
+            android:id="@+id/cbNature"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nature"/>
+
+        <CheckBox
+            android:id="@+id/cbMinimalism"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minimalism"/>
+
+        <CheckBox
+            android:id="@+id/cbPopArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pop Art"/>
+
+        <CheckBox
+            android:id="@+id/cbRetroFuturism"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retro Futurism"/>
+
+        <CheckBox
+            android:id="@+id/cbModernArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modern Art"/>
+
+        <CheckBox
+            android:id="@+id/cbFuturistic"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Futuristic"/>
+
+        <CheckBox
+            android:id="@+id/cbVaporwave"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vaporwave"/>
+
+        <CheckBox
+            android:id="@+id/cbSurreal"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Surreal"/>
+
+        <CheckBox
+            android:id="@+id/cbNeon"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Neon"/>
+
+        <CheckBox
+            android:id="@+id/cbColorful"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Colorful"/>
+
+        <CheckBox
+            android:id="@+id/cbDarkArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dark Art"/>
+
+        <CheckBox
+            android:id="@+id/cbCyborg"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cyborg"/>
+
+        <CheckBox
+            android:id="@+id/cbRobotics"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Robotics"/>
+
+        <CheckBox
+            android:id="@+id/cbFuturisticCity"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Futuristic City"/>
+
+        <CheckBox
+            android:id="@+id/cbCyberpunkCity"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cyberpunk City"/>
+
+        <CheckBox
+            android:id="@+id/cbDigitalPortrait"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Digital Portrait"/>
+
+        <CheckBox
+            android:id="@+id/cbArtificialIntelligence"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artificial Intelligence"/>
+
+        <CheckBox
+            android:id="@+id/cbVirtualReality"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Virtual Reality"/>
+
+        <CheckBox
+            android:id="@+id/cbFutureTechnology"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Future Technology"/>
+
+        <CheckBox
+            android:id="@+id/cbGlitchArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Glitch Art"/>
+
+        <CheckBox
+            android:id="@+id/cbComicStyle"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comic Style"/>
+
+        <CheckBox
+            android:id="@+id/cbDigitalLandscapes"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Digital Landscapes"/>
+
+        <CheckBox
+            android:id="@+id/cbCyberAnimals"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cyber Animals"/>
+
+        <CheckBox
+            android:id="@+id/cbFuturisticVehicles"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Futuristic Vehicles"/>
+
+        <CheckBox
+            android:id="@+id/cbSpaceArt"
+            android:textColor="#3E3E3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Space Art"/>
+
+    </GridLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApplyFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apply Filter"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#DEDEDE"
+            android:textSize="16sp"
+            app:backgroundTint="#1171BD"
+            app:cornerRadius="40dp"
+            />
+    </LinearLayout>
+</ScrollView>

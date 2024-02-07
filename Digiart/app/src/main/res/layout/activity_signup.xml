@@ -18,6 +18,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/login_signup_hero_img" />
 
+
     <!-- CardView with rounded corners -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
         android:layout_marginTop="-50dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="30dp"
-        app:cardElevation="5dp">
+        app:cardElevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,7 +69,7 @@
                     android:hint="@string/email_hint"
                     android:inputType="textEmailAddress"
                     android:textColor="#455A64"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Password Input -->
@@ -92,7 +93,7 @@
                     android:hint="@string/password_hint"
                     android:inputType="textPassword"
                     android:textColor="#455A64"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Confirm Password Input -->
@@ -116,7 +117,7 @@
                     android:hint="@string/con_password"
                     android:inputType="textPassword"
                     android:textColor="#455A64"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Signup button -->
@@ -131,10 +132,10 @@
                 android:text="@string/sign_up"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="#DEDEDE"
-                app:backgroundTint="#121212"
                 android:textSize="16sp"
+                app:backgroundTint="#121212"
                 app:cornerRadius="40dp"
-                tools:ignore="ObsoleteLayoutParam,VisualLintButtonSize" />
+                tools:ignore="ObsoleteLayoutParam,VisualLintButtonSize,TextContrastCheck" />
 
             <!-- Login option button -->
             <com.google.android.material.button.MaterialButton

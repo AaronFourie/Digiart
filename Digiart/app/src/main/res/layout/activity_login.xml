@@ -8,7 +8,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="0dp"
-    android:padding="0dp">
+    android:padding="0dp"
+    tools:context=".ui.login.LoginActivity">
+
 
     <!-- Signup & Login hero img -->
     <ImageView
@@ -27,7 +29,7 @@
         android:layout_marginTop="-50dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="30dp"
-        app:cardElevation="5dp">
+        app:cardElevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,7 +70,7 @@
                     android:hint="@string/email_hint"
                     android:inputType="textEmailAddress"
                     android:textColor="#455A64"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Password Input -->
@@ -89,7 +91,7 @@
                     android:hint="@string/password_hint"
                     android:inputType="textPassword"
                     android:textColor="#455A64"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Sign in button -->

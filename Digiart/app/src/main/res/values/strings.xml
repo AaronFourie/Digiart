@@ -43,4 +43,61 @@
     <string name="login_option">Login to Account</string>
     <string name="google_signup_option">Sign up with Google</string>
     <string name="sign_up">Sign up</string>
+    <string name="email_required">Email required</string>
+    <string name="password_required">Password required</string>
+    <string name="confirm_password_required">Confirm password required</string>
+    <string name="password_mismatch">Passwords don\'t match</string>
+    <string name="title_profile">Profile</string>
+    <string name="search">Search</string>
+    <string name="account">Account</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Account Settings -->
+    <string name="account_settings_header">Account Settings</string>
+    <string name="user_name_title">User Name</string>
+    <string name="email_notifications_title">Email Notifications</string>
+    <string name="email_notifications_summary_on">Email notifications are enabled</string>
+    <string name="email_notifications_summary_off">Email notifications are disabled</string>
+    <string name="change_password_title">Change Password</string>
+    <string name="change_password_summary">Change your account password</string>
+
+    <!-- Notification Settings -->
+    <string name="notification_settings_header">Notification Settings</string>
+    <string name="push_notifications_title">Push Notifications</string>
+    <string name="push_notifications_summary_on">Push notifications are enabled</string>
+    <string name="push_notifications_summary_off">Push notifications are disabled</string>
+    <string name="notification_sound_title">Notification Sound</string>
+
+    <!-- Security Settings -->
+    <string name="security_settings_header">Security Settings</string>
+    <string name="biometric_authentication_title">Biometric Authentication</string>
+    <string name="biometric_authentication_summary_on">Biometric authentication is enabled</string>
+    <string name="biometric_authentication_summary_off">Biometric authentication is disabled</string>
+    <string name="two_factor_authentication_title">Two-Factor Authentication</string>
+    <string name="two_factor_authentication_summary_on">Two-factor authentication is enabled</string>
+    <string name="two_factor_authentication_summary_off">Two-factor authentication is disabled</string>
+
+    <!-- Display Settings -->
+    <string name="display_settings_header">Display Settings</string>
+    <string name="dark_mode_title">Dark Mode</string>
+    <string name="dark_mode_summary_on">Dark mode is enabled</string>
+    <string name="dark_mode_summary_off">Dark mode is disabled</string>
+    <string name="font_size_title">Font Size</string>
+    <string name="log_out_title">Logout</string>
+    <string name="log_out_summary">Logout of your current account</string>
+    <string name="_10"><![CDATA[< $10]]></string>
+    <string name="_10_25">$10 - $25</string>
+    <string name="_25_50">$25 - $50</string>
+    <string name="_50_100">$50 - $100</string>
+    <string name="_100"><![CDATA[> $100]]></string>
+    <string name="art_type">Art Type</string>
+    <string name="price">Price</string>
+    <string name="filter_icon_description">Filter icon</string>
+    <string name="filter">Filter</string>
+    <string name="img_type">Image Type</string>
+    <string name="All">All</string>
+    <string name="Photo">Photo</string>
+    <string name="Illustration">Illustration</string>
+    <string name="profile_listings">Listings</string>
+    <string name="profile_saved">Saved</string>
 </resources>

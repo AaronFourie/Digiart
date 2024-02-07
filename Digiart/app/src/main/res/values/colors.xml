@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+        <!-- Black color -->
+        <color name="black">#000000</color>
+        <!-- White color -->
+        <color name="white">#FFFFFF</color>
 
 </resources>
