@@ -33,7 +33,6 @@ class HomeFragment : Fragment() {
 
         val recyclerView: RecyclerView = rootView.findViewById(R.id.recyclerView)
 
-        // Replace "your_api_key" with your actual Pixabay API key
         val apiKey = "42181235-896713bfdbdd7703b4d3edea4"
         val pixabayApiUrl =
             "https://pixabay.com/api/?key=$apiKey&q=digital+art&image_type=all&per_page=200"

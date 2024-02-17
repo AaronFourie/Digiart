@@ -4,14 +4,24 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.digiart.MainActivity
 import com.digiart.R
 import com.digiart.ui.login.LoginActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class SignupActivity : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var emailEditText: TextInputEditText
     private lateinit var passwordEditText: TextInputEditText
     private lateinit var conPasswordEditText: TextInputEditText
@@ -33,6 +43,10 @@ class SignupActivity : AppCompatActivity() {
             window.navigationBarColor = resources.getColor(R.color.white, theme)
         }
 
+        // Initialize Firebase Auth
+        auth = Firebase.auth
+
+
         emailEditText = findViewById(R.id.emailEditText)
         passwordEditText = findViewById(R.id.passwordEditText)
         conPasswordEditText = findViewById(R.id.conpasswordEditText)
@@ -41,56 +55,95 @@ class SignupActivity : AppCompatActivity() {
         conPasswordTextInputLayout = findViewById(R.id.conpasswordTextInputLayout)
 
         val signUpButton = findViewById<Button>(R.id.signUpButton)
+        val loginButton = findViewById<Button>(R.id.loginButton)
+        val signInWithGoogleButton = findViewById<Button>(R.id.signInWithGoogleButton)
 
-        signUpButton.setOnClickListener {
-            if (validateForm()) {
-                // Proceed with signup logic
-                // You can start the next activity or perform the signup action here
-                val intent = Intent(this@SignupActivity, LoginActivity::class.java)
-                startActivity(intent)
-            }
+        signUpButton.setOnClickListener { signUpWithEmailPassword() }
+        loginButton.setOnClickListener { navigateToLogin() }
+        signInWithGoogleButton.setOnClickListener { signInWithGoogle() }
+    }
+
+    private fun signUpWithEmailPassword() {
+        val email = emailEditText.text.toString()
+        val password = passwordEditText.text.toString()
+        val confirmPassword = conPasswordEditText.text.toString()
+
+        if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            return
         }
 
-        val loginBtn = findViewById<Button>(R.id.loginButton)
+        if (password != confirmPassword) {
+            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-        loginBtn.setOnClickListener {
-            val intent = Intent(this@SignupActivity, LoginActivity::class.java)
-            startActivity(intent)
+        // Create user with email and password using Firebase Authentication
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign up success, update UI with the signed-up user's information
+                    val user = auth.currentUser
+                    navigateToMainActivity()
+                } else {
+                    // If sign up fails, display a message to the user.
+                    Toast.makeText(baseContext, "Sign up failed. ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+    private fun signInWithGoogle() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        val googleSignInClient = GoogleSignIn.getClient(this, gso)
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    val user = auth.currentUser
+                    navigateToMainActivity()
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)!!
+                firebaseAuthWithGoogle(account.idToken!!)
+            } catch (e: ApiException) {
+                Toast.makeText(baseContext, "Google sign in failed.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    private fun validateForm(): Boolean {
-        var isValid = true
+    companion object {
+        private const val RC_SIGN_IN = 123
+    }
 
-        // Reset errors
-        emailTextInputLayout.error = null
-        passwordTextInputLayout.error = null
-        conPasswordTextInputLayout.error = null
+    private fun navigateToLogin() {
+        val intent = Intent(this@SignupActivity, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 
-        // Validate email
-        val email = emailEditText.text.toString()
-        if (email.isEmpty()) {
-            emailTextInputLayout.error = getString(R.string.email_required)
-            isValid = false
-        }
-
-        // Validate password
-        val password = passwordEditText.text.toString()
-        if (password.isEmpty()) {
-            passwordTextInputLayout.error = getString(R.string.password_required)
-            isValid = false
-        }
-
-        // Validate confirm password
-        val confirmPassword = conPasswordEditText.text.toString()
-        if (confirmPassword.isEmpty()) {
-            conPasswordTextInputLayout.error = getString(R.string.confirm_password_required)
-            isValid = false
-        } else if (password != confirmPassword) {
-            conPasswordTextInputLayout.error = getString(R.string.password_mismatch)
-            isValid = false
-        }
-
-        return isValid
+    private fun navigateToMainActivity() {
+        val intent = Intent(this@SignupActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

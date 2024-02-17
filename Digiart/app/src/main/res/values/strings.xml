@@ -29,7 +29,7 @@
     <string name="digital_comic_lbl">Digital Comic</string>
     <string name="nft_art_lbl">NFT Art</string>
     <string name="generative_art_lbl">Generative Art</string>
-    <string name="motion_grahpics_and_animation_lbl">Motion Grahpics and Animation</string>
+    <string name="motion_grahpics_and_animation_lbl">Motion Graphics and Animation</string>
     <string name="digital_calligraphy_and_lettering_lbl">Digital Calligraphy and Lettering</string>
     <string name="digiart_logo_2_white">digiart_logo_2_white</string>
     <string name="guest_login_option">Continue as Guest</string>
@@ -100,4 +100,23 @@
     <string name="Illustration">Illustration</string>
     <string name="profile_listings">Listings</string>
     <string name="profile_saved">Saved</string>
+    <string name="title_activity_sell">Sell</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_a_digital_art_type_for_your_listing">Select a digital art type for your listing</string>
+    <string name="next">Next</string>
+    <string name="confirm_listing_details">Confirm listing details</string>
+    <string name="setup_listing_details">Setup listing details</string>
+    <string name="product_name">Listing Name</string>
+    <string name="product_tag_tags">Tag/Tags</string>
+    <string name="description">Description</string>
+    <string name="upload_your_digital_art">Upload your Digital Art</string>
+    <string name="preview_listing">Listing Preview</string>
+    <string name="set_listing_details_image">Set listing details image</string>
+    <string name="back">Back</string>
+    <string name="listing_preview_image">Listing preview image</string>
+    <string name="ditital_art_type">Ditital Art Type</string>
+    <string name="title_sell_preview">Listing Preview</string>
+    <string name="title_sell_details">Setup Listing Details</string>
+    <string name="default_web_client_id">510340398446-reb1mdq66mo14q21md0m90nrtejd4lj0.apps.googleusercontent.com</string>
 </resources>

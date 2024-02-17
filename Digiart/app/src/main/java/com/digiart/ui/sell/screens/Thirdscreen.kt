@@ -5,56 +5,51 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebChromeClient
+import android.webkit.WebSettings
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.ImageView
+import android.widget.TextView
 import com.digiart.R
+import com.digiart.ui.sell.Listing
+import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Thirdscreen.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Thirdscreen : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_thirdscreen, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_thirdscreen, container, false)
+        // Retrieve Listing data from arguments bundle
+        val listingItem = arguments?.getParcelable<Listing>("listingItem")
+
+        // Access TextView elements
+        val sellPreviewMediaAsset = rootView.findViewById<WebView>(R.id.sellPreviewMediaAsset)
+
+        val sellPreviewListingName = rootView.findViewById<TextView>(R.id.sellPreviewListingName)
+        val sellPreviewListingArtType = rootView.findViewById<TextView>(R.id.sellPreviewListingArtType)
+        val sellPreviewListingDesc = rootView.findViewById<TextView>(R.id.sellPreviewListingDesc)
+        val sellPreviewListingTags = rootView.findViewById<TextView>(R.id.sellPreviewListingTags)
+        val sellPreviewListingPrice = rootView.findViewById<TextView>(R.id.sellPreviewListingPrice)
+
+        // Load the media asset URL into the WebView
+        listingItem?.listing_media?.let { mediaUrl ->
+            sellPreviewMediaAsset.loadUrl(mediaUrl)
+        }
+
+        // Populate TextView elements with Listing data
+        listingItem?.let {
+            sellPreviewListingName.text = it.title
+            sellPreviewListingArtType.text = it.category // Replace with appropriate field from Listing object
+            sellPreviewListingDesc.text = it.description
+            sellPreviewListingTags.text = it.tags
+            sellPreviewListingPrice.text = it.price.toString()
+        }
+
+        return rootView
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Thirdscreen.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Thirdscreen().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

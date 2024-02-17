@@ -3,11 +3,14 @@
 <!-- This layout encompasses the 12 digital art selling options that
 pops up after the user clicks on the Sell bottom navigation menu icon-->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/sellCategories"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <!-- CardView with rounded corners -->
     <androidx.cardview.widget.CardView

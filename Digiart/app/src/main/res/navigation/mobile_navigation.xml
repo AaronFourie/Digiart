@@ -22,4 +22,29 @@
         android:name="com.digiart.ui.notifications.NotificationFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notification_list" />
+
+    <fragment
+        android:id="@+id/navigation_sell"
+        android:name="com.digiart.ui.sell.screens.Firstscreen"
+        android:label="@string/title_sell"
+        tools:layout="@layout/fragment_firstscreen">
+        <action
+            android:id="@+id/action_navigation_sell_to_navigation_sell2"
+            app:destination="@id/navigation_sell2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_sell2"
+        android:name="com.digiart.ui.sell.screens.Secondscreen"
+        android:label="@string/title_sell_details"
+        tools:layout="@layout/fragment_secondscreen">
+        <action
+            android:id="@+id/action_navigation_sell2_to_navigation_sell3"
+            app:destination="@id/navigation_sell3" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_sell3"
+        android:name="com.digiart.ui.sell.screens.Thirdscreen"
+        android:label="@string/title_sell_preview"
+        tools:layout="@layout/fragment_thirdscreen"/>
 </navigation>

@@ -1,14 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    tools:context=".ui.sell.screens.Thirdscreen">
+    android:orientation="vertical"
+    tools:context=".ui.sell.screens.Thirdscreen"
+    android:background="@color/white">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/twofthree"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/threeof3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- CardView with rounded corners -->
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.209"
+        tools:layout_editor_absoluteX="0dp">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="2dp">
+
+            <!-- Selling selection prompt -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:drawingCacheQuality="high"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center"
+                android:text="@string/preview_listing"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#474747"
+                android:textSize="30sp"
+                tools:ignore="TextSizeCheck" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginVertical="20dp"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="40dp"
+            android:layout_gravity="center"
+            app:cardElevation="10dp"
+            android:backgroundTint="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="534dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="40dp">
+
+                <WebView
+                    android:id="@+id/sellPreviewMediaAsset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/listing_preview_image"/>
+
+                <TextView
+                    android:id="@+id/sellPreviewListingName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:text="@string/product_name"
+                    android:textColor="#5E5D5D"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/sellPreviewListingArtType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:text="@string/ditital_art_type"
+                    android:textColor="#5E5D5D"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/sellPreviewListingDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:text="@string/description"
+                    android:textColor="#5E5D5D"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/sellPreviewListingTags"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:text="@string/product_tag_tags"
+                    android:textColor="#5E5D5D"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/sellPreviewListingPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:text="@string/price"
+                    android:textColor="#5E5D5D"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alignmentMode="alignMargins"
+        android:columnCount="3"
+        android:columnOrderPreserved="false"
+        android:paddingHorizontal="40dp"
+        android:paddingTop="5dp"
+        android:rowCount="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.949"
+        tools:layout_editor_absoluteX="0dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/previousBtn"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/back"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#7797E6"
+            android:textSize="18sp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="40dp"
+            app:iconTint="#0E5288"
+            app:rippleColor="#0D538A"
+            tools:ignore="ObsoleteLayoutParam,VisualLintButtonSize,TextContrastCheck" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signInButton"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Upload"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:backgroundTint="#446CD1"
+            app:cornerRadius="40dp"
+            app:iconTint="#0E5288"
+            app:rippleColor="#0D538A"
+            tools:ignore="ObsoleteLayoutParam,VisualLintButtonSize" />
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

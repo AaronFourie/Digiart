@@ -1,60 +1,130 @@
 package com.digiart.ui.sell.screens
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.digiart.R
+import com.google.android.material.button.MaterialButton
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Firstscreen.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Firstscreen : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    companion object {
+        var selectedCategory: String? = null
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_firstscreen, container, false)
+        (activity as AppCompatActivity).supportActionBar?.hide()
+
+        // Hide the status bar
+        activity?.window?.decorView?.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
+
+        val view = inflater.inflate(R.layout.fragment_firstscreen, container, false)
+
+        // Find all the MaterialButton views
+        val buttons = arrayOf(
+            view.findViewById<MaterialButton>(R.id.digitalIllustrationsButton),
+            view.findViewById<MaterialButton>(R.id.digitalIlPaintingButton),
+            view.findViewById<MaterialButton>(R.id.vectorArtButton),
+            view.findViewById<MaterialButton>(R.id.threeDArtButton),
+            view.findViewById<MaterialButton>(R.id.pixelArtButton),
+            view.findViewById<MaterialButton>(R.id.digitalCollageButton),
+            view.findViewById<MaterialButton>(R.id.digitalPhotographyButton),
+            view.findViewById<MaterialButton>(R.id.digitalComicsButton),
+            view.findViewById<MaterialButton>(R.id.nftArtButton),
+            view.findViewById<MaterialButton>(R.id.generativeArtButton),
+            view.findViewById<MaterialButton>(R.id.motionGrahpicsAndAnimationButton),
+            view.findViewById<MaterialButton>(R.id.digitalCalligraphyAndLetteringButton)
+        )
+        val artTypes = arrayOf(
+            view.findViewById<TextView>(R.id.DigitalIllustationLbl),
+            view.findViewById<TextView>(R.id.DigitalPaintingLbl),
+            view.findViewById<TextView>(R.id.VectorArtLbl),
+            view.findViewById<TextView>(R.id.ThreeDArtLbl),
+            view.findViewById<TextView>(R.id.PixelArtLbl),
+            view.findViewById<TextView>(R.id.DigitalCollageLbl),
+            view.findViewById<TextView>(R.id.DigitalPhotographLbl),
+            view.findViewById<TextView>(R.id.DigitalComicLbl),
+            view.findViewById<TextView>(R.id.NFTArtLbl),
+            view.findViewById<TextView>(R.id.GenerativeArtLbl),
+            view.findViewById<TextView>(R.id.MotionGraphicsAndAnimationLbl),
+            view.findViewById<TextView>(R.id.DigitalCalligraphyAndLettingLbl)
+        )
+
+        var lastSelectedButton: MaterialButton? = null
+        var lastSelectedCategory: String? = null
+
+        // Find the next button
+        val nextBtn = view.findViewById<Button>(R.id.nextBtn)
+
+        // Set click listeners to handle button selection
+        for (index in buttons.indices) {
+            buttons[index].setOnClickListener {
+                // Check if there was a previously selected button
+                lastSelectedButton?.apply {
+                    // Change back to light gray background and black icon
+                    setBackgroundColor(resources.getColor(R.color.light_gray))
+                    setIconTintResource(android.R.color.black)
+                }
+                // Set current button to selected state (dark gray background, white icon)
+                buttons[index].apply {
+                    setBackgroundColor(resources.getColor(R.color.dark_gray))
+                    setIconTintResource(android.R.color.white)
+                }
+                // Update the last selected button and category
+                lastSelectedButton = buttons[index]
+                lastSelectedCategory = artTypes[index].text.toString()
+
+                // Enable or disable the next button based on the selection state
+                nextBtn.isEnabled = true
+            }
+        }
+
+        // Set click listener for the next button
+        nextBtn.setOnClickListener {
+            // Check if any button is selected
+            if (lastSelectedButton != null) {
+                selectedCategory = lastSelectedCategory;
+                // Navigate to the SecondScreenFragment using NavController
+                val bundle = Bundle().apply {
+                    putString("selectedCategory", selectedCategory)
+                }
+                val secondFragment = Secondscreen().apply {
+                    arguments = bundle
+                }
+                val firstFragment = Firstscreen()
+                // Get the FragmentManager
+                val fragmentManager = requireActivity().supportFragmentManager
+
+                // Begin a FragmentTransaction
+                fragmentManager.beginTransaction().apply {
+                    // Replace the current fragment with the SecondScreen fragment
+                    replace(R.id.SellFirstScreen, secondFragment)
+                    // Add the transaction to the back stack (optional)
+                    addToBackStack(null)
+                    // Commit the transaction
+                    commit()
+                }
+            } else {
+                Toast.makeText(context, "Please select an art type", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Disable the next button initially
+        nextBtn.isEnabled = false
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Firstscreen.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Firstscreen().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

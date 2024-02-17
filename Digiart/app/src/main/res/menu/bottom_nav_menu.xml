@@ -8,6 +8,12 @@
         tools:ignore="MenuTitle" />
 
     <item
+        android:id="@+id/navigation_sell"
+        android:icon="@drawable/sell_icon"
+        android:iconTint="#000000"
+        tools:ignore="MenuTitle" />
+
+    <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_notifications_black_24dp"
         tools:ignore="MenuTitle" />

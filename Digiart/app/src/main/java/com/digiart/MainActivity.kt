@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.PopupWindow
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -16,12 +17,13 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.digiart.databinding.ActivityMainBinding
 import com.google.android.material.appbar.MaterialToolbar
-
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var isFilterExpanded = false
     private var filterPopup: PopupWindow? = null
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +31,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
 // Hide ActionBar
         // Set status bar color to black
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -44,25 +44,11 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top-level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_profile, R.id.navigation_notifications
-            )
-        )
-
-        // Set up the ActionBar with NavController
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
         // Set up the BottomNavigationView with NavController
         binding.navView.setupWithNavController(navController)
 
-        // Set up filter button click listener
-        binding.btnFilter.setOnClickListener { showFilterPopup(it) }
 
     }
-
 
     private fun showFilterPopup(view: View) {
         val popupView = layoutInflater.inflate(R.layout.filter_options, null)

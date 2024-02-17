@@ -1,14 +1,612 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/SellFirstScreen"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.sell.screens.Firstscreen">
+    android:orientation="vertical"
+    tools:context=".ui.sell.screens.Firstscreen"
+    android:background="@color/white">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/oneofthree"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/oneof3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#00FFFFFF"
+        android:orientation="vertical"
+        android:paddingTop="35dp"
+>
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="306dp"
+            android:layout_height="204dp"
+            android:layout_gravity="center"
+            android:src="@drawable/sell_screen2_bg_removed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01" />
+        <!-- CardView with rounded corners -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="2dp">
+
+                <!-- Selling selection prompt -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:drawingCacheQuality="high"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:gravity="center"
+                    android:text="@string/selling_selection_lbl"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="#474747"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:drawingCacheQuality="high"
+                android:fontFamily="sans-serif-condensed-light"
+                android:gravity="center"
+                android:text="@string/select_a_digital_art_type_for_your_listing"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#3A3A3A"
+                android:textSize="16sp" />
+
+            <!-- CardView with rounded corners -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignMargins"
+                android:columnCount="4"
+                android:columnOrderPreserved="false"
+                android:paddingTop="0dp"
+                android:paddingBottom="25dp"
+                android:paddingHorizontal="60dp"
+                android:rowCount="3">
+
+                <!-- Digital Illustration -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/digitalIllustrationsButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:icon="@drawable/digital_illustration_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="25dp"
+                        app:iconTint="#040404"
+                        app:rippleColor="#272727"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/DigitalIllustationLbl"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:gravity="center"
+                        android:text="@string/digital_illustration_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp,TextSizeCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/digitalIlPaintingButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:icon="@drawable/digital_painting_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="26dp"
+                        app:rippleColor="#272727"
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <!-- Digital Painting -->
+                    <TextView
+                        android:id="@+id/DigitalPaintingLbl"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:gravity="center"
+                        android:text="@string/digital_painting_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
+
+                </LinearLayout>
+
+                <!-- Vector Art -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/vectorArtButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:icon="@drawable/vector_art_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="25dp"
+                        app:rippleColor="#272727"
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+
+                    <TextView
+                        android:id="@+id/VectorArtLbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:text="@string/vector_art_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
+
+                </LinearLayout>
+
+                <!-- 3D Art -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/threeDArtButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:icon="@drawable/three_d_art_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="27dp"
+                        app:iconTint="#050505"
+                        app:rippleColor="#272727"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/ThreeDArtLbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:text="@string/_3d_art_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
+
+                </LinearLayout>
+
+                <!-- Pixel Art -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/pixelArtButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:rippleColor="#272727"
+                        app:icon="@drawable/pixel_art_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="25dp"
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/PixelArtLbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:text="@string/pixel_art_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
+
+                </LinearLayout>
+
+                <!-- Digital Collage -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/digitalCollageButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:rippleColor="#272727"
+                        app:icon="@drawable/digital_collage_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="25dp"
+                        app:iconTint="#090909"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/DigitalCollageLbl"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:gravity="center"
+                        android:text="@string/digital_collage_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
+
+                </LinearLayout>
+
+                <!-- Digital Photography -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/digitalPhotographyButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:rippleColor="#272727"
+                        app:icon="@drawable/digital_photography_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="25dp"
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/DigitalPhotographLbl"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:gravity="center"
+                        android:text="@string/digital_photograh_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp,TextSizeCheck" />
+
+                </LinearLayout>
+
+                <!-- Digital Comics -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/digitalComicsButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:rippleColor="#272727"
+                        app:icon="@drawable/digital_comics_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="27dp"
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/DigitalComicLbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:text="@string/digital_comic_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
+
+                </LinearLayout>
+
+                <!-- NFT Art -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/nftArtButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:rippleColor="#272727"
+                        app:icon="@drawable/nft_art_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="26dp"
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/NFTArtLbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:text="@string/nft_art_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp" />
+
+                </LinearLayout>
+
+                <!-- Generative/AI Art -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/generativeArtButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:rippleColor="#272727"
+                        app:icon="@drawable/generative_art_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="24dp"
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/GenerativeArtLbl"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:gravity="center"
+                        android:text="@string/generative_art_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp,TextSizeCheck" />
+
+                </LinearLayout>
+
+                <!-- Motion graphics and Animation -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/motionGrahpicsAndAnimationButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:rippleColor="#272727"
+                        app:icon="@drawable/motion_graphics_and_animation_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="26dp"
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/MotionGraphicsAndAnimationLbl"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:gravity="center"
+                        android:text="@string/motion_grahpics_and_animation_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp,TextSizeCheck" />
+
+                </LinearLayout>
+
+                <!-- Digital Calligraphy and Lettering -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/digitalCalligraphyAndLetteringButton"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="52dp"
+                        android:layout_height="65dp"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="8dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        app:backgroundTint="#E6E3E3"
+                        app:cornerRadius="12dp"
+                        app:rippleColor="#272727"
+                        app:icon="@drawable/digital_calligraphy_and_lettering_icon"
+                        app:iconGravity="textTop"
+                        app:iconSize="23dp"
+                        app:iconTint="#000000"
+                        tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/DigitalCalligraphyAndLettingLbl"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:gravity="center"
+                        android:text="@string/digital_calligraphy_and_lettering_lbl"
+                        android:textColor="#000000"
+                        android:textSize="9sp"
+                        tools:ignore="SmallSp,TextSizeCheck" />
+
+                </LinearLayout>
+
+            </GridLayout>
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="3"
+            android:columnOrderPreserved="false"
+            android:paddingHorizontal="40dp"
+            android:paddingTop="10dp"
+            android:rowCount="1">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/nextBtn"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="@string/next"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#7797E6"
+                android:textSize="18sp"
+                app:backgroundTint="#FFFFFF"
+                app:cornerRadius="40dp"
+                app:iconTint="#0E5288"
+                app:rippleColor="#0D538A"
+                tools:ignore="ObsoleteLayoutParam,VisualLintButtonSize" />
+
+        </GridLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
